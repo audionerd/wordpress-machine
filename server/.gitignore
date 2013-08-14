@@ -1,0 +1,8 @@
+.vagrant
+Customfile
+.DS_Store
+/www/wp-cli/
+/www/wp/
+/www/pma
+phpMyAdmin*
+site

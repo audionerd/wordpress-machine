@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+
+        ServerName pma.dev
+        ServerAlias pma.dev *.pma.dev
+
+        DocumentRoot /var/www/pma/
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /var/www/pma/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+</VirtualHost>
