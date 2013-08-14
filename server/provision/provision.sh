@@ -56,6 +56,9 @@ bash /vagrant/provision/install-wp-cli.sh
 # install phpMyAdmin
 bash /vagrant/provision/install-pma.sh
 
+# install Ruby
+bash /vagrant/provision/install-ruby.sh
+
 if [ -f /vagrant/provision/custom-setup.sh ]; then
     bash /vagrant/provision/custom-setup.sh
 fi

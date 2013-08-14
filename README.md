@@ -62,5 +62,7 @@ Automatic hosts setup via:
 	https://github.com/cogitatio/vagrant-hostsupdater
 	Vagrant.require_plugin "vagrant-hostsupdater"
 
-Use .env environment variables instead of hardcoding wordpress db config!  
-Extract site-specific config to its own file?
+Use .env environment variables instead of hardcoding wordpress db config!
+Extract site-specific config to its own file?  
+
+Wercker CI to auto-build/test w/ Vagrant on every deploy?
