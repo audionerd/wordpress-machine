@@ -1,0 +1,21 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (3.2.14)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
+    i18n (0.6.5)
+    multi_json (1.7.9)
+    thor (0.16.0)
+    wordless (0.3.0)
+      activesupport (~> 3.2.0)
+      thor (~> 0.16.0)
+      wordpress_tools (~> 0.0.1)
+    wordpress_tools (0.0.1)
+      thor
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  wordless
