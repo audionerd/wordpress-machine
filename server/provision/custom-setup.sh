@@ -8,6 +8,7 @@ sudo ln -s /vagrant/site /var/www/site
 cd /var/www/site
 
 source script/setup
+cd /var/www/site
 
 # remove the wp stuff for now
 if [ ! -L /etc/apache2/sites-enabled/wp ]; then

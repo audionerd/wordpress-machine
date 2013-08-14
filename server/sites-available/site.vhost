@@ -4,14 +4,14 @@
         ServerName 192.168.33.10
         ServerAlias site.dev *.site.dev
 
-        DocumentRoot /var/www/site/wordpress
+        DocumentRoot /var/www/site/
         <Directory />
                 Options FollowSymLinks
-                AllowOverride None
+                AllowOverride All
         </Directory>
         <Directory /var/www/site/>
                 Options Indexes FollowSymLinks MultiViews
-                AllowOverride None
+                AllowOverride All
                 Order allow,deny
                 allow from all
         </Directory>
