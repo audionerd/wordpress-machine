@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ ! -d "${DIR}/../site-theme" ]; then
+    cd "${DIR}/../"
+    forge create site-theme
+fi
+
+cd "${DIR}/../site-theme"
+
+forge link ../wp-content/themes/site-theme
+forge watch

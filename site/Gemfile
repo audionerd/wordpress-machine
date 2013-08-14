@@ -1,3 +1,4 @@
 source "https://rubygems.org"
 
-gem "wordless"
+gem "therubyracer"
+gem "forge", git:'https://github.com/thethemefoundry/forge.git'

@@ -20,4 +20,11 @@ if [ ! -L /etc/apache2/sites-enabled/site ]; then
 	sudo ln -s /vagrant/sites-available/site.vhost /etc/apache2/sites-enabled/site
 fi
 
+# setup gems
+cd /var/www/site
+gem install bundler
+rbenv rehash
+bundle install --binstubs .bundle/bin
+rbenv rehash
+
 sudo service apache2 restart

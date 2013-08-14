@@ -8,12 +8,13 @@ if [ ! -d /usr/local/rbenv ]; then
     apt-get install libssl-dev
     apt-get install libreadline-dev
     apt-get install zlib1g-dev
+    apt-get install build-essential g++
 
     echo "Installing rbenv"
     #
     cd /usr/local
     git clone git://github.com/sstephenson/rbenv.git rbenv
-    chgrp -R staff rbenv
+    chgrp -R admin rbenv
     chmod -R g+rwxXs rbenv
 
     echo "Adding rbenv init to /home/vagrant/.profile"
@@ -34,8 +35,18 @@ if [ ! -d /usr/local/rbenv ]; then
     mkdir plugins
     cd plugins
     git clone git://github.com/sstephenson/ruby-build.git
-    chgrp -R staff ruby-build
+    chgrp -R admin ruby-build
     chmod -R g+rwxs ruby-build
+
+    echo "Installing rbenv-binstubs"
+    #
+    mkdir -p /usr/local/rbenv/plugins
+    if [ ! -d /usr/local/rbenv/plugins/rbenv-binstubs ]; then
+        cd /usr/local/rbenv/plugins
+        git clone https://github.com/ianheggie/rbenv-binstubs.git
+        chgrp -R admin rbenv-binstubs
+        chmod -R g+rwxs rbenv-binstubs
+    fi
 
     echo "Installing Ruby 2.0.0-p0"
     rbenv install 2.0.0-p0
