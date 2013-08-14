@@ -23,7 +23,7 @@ Setup will take about 20 minutes. Once complete, you can load up the server:
 
 Wordpress is served out of `site/`
 
-You can setup /etc/hosts to point to subdomains so you can do:
+You can also setup /etc/hosts to point to subdomains so you can do:
 
 	http://site.dev
 
@@ -31,6 +31,8 @@ Add these records to your local machine's hosts file
     * `192.168.33.10  site.dev`
     * `192.168.33.10  wp.dev`
     * `192.168.33.10  pma.dev`
+
+(PMA = phpMyAdmin)
 
 (see https://github.com/ifeelweb/ifwWordPressDevEnvironment for details)
 
