@@ -27,10 +27,10 @@ fi
 
 # load vhosts
 if [ ! -L /etc/apache2/sites-enabled/wp ]; then
-    sudo ln -s /vagrant/sites-available/wp.vhost /etc/apache2/sites-enabled/wp
+    sudo ln -s /vagrant/server/sites-available/wp.vhost /etc/apache2/sites-enabled/wp
 fi
 if [ ! -L /etc/apache2/sites-enabled/pma ]; then
-    sudo ln -s /vagrant/sites-available/pma.vhost /etc/apache2/sites-enabled/pma
+    sudo ln -s /vagrant/server/sites-available/pma.vhost /etc/apache2/sites-enabled/pma
 fi
 
 # symlink www
@@ -39,13 +39,13 @@ mkdir /var/www
 # sudo ln -s /vagrant/www /var/www
 
 # install composer
-bash /vagrant/provision/install-composer.sh
+bash /vagrant/server/provision/install-composer.sh
 
 # install phpunit
-bash /vagrant/provision/install-phpunit.sh
+bash /vagrant/server/provision/install-phpunit.sh
 
 # install wp-cli
-bash /vagrant/provision/install-wp-cli.sh
+bash /vagrant/server/provision/install-wp-cli.sh
 
 # install wp dev
 # bash /vagrant/provision/install-wp-dev.sh
@@ -54,13 +54,13 @@ bash /vagrant/provision/install-wp-cli.sh
 # bash /vagrant/provision/install-wp-trunk.sh
 
 # install phpMyAdmin
-bash /vagrant/provision/install-pma.sh
+bash /vagrant/server/provision/install-pma.sh
 
 # install Ruby
-bash /vagrant/provision/install-ruby.sh
+bash /vagrant/server/provision/install-ruby.sh
 
-if [ -f /vagrant/provision/custom-setup.sh ]; then
-    bash /vagrant/provision/custom-setup.sh
+if [ -f /vagrant/server/provision/custom-setup.sh ]; then
+    bash /vagrant/server/provision/custom-setup.sh
 fi
 
 # finally restart/reload apache

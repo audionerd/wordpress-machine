@@ -1,6 +1,5 @@
 # WP-CLI Install
-if [ ! -d /var/www/wp-cli ]
-then
+if [ ! -e /var/www/wp-cli/bin/wp ]; then
     printf "\nInstalling wp-cli\n"
     git clone git://github.com/wp-cli/wp-cli.git /var/www/wp-cli
     cd /var/www/wp-cli

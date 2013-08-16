@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
 gem "therubyracer"
-gem "forge", git:'https://github.com/thethemefoundry/forge.git'
+gem "forge", :git => 'git://github.com/thethemefoundry/forge.git'

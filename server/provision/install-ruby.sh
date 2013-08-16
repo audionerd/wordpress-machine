@@ -4,11 +4,12 @@ if [ ! -d /usr/local/rbenv ]; then
 
     echo "Installing rbenv build dependencies (make, openssl, readline, zlib)"
     #
-    apt-get install make
-    apt-get install libssl-dev
-    apt-get install libreadline-dev
-    apt-get install zlib1g-dev
-    apt-get install build-essential g++
+    apt-get install -y make
+    apt-get install -y libssl-dev
+    apt-get install -y libreadline-dev
+    apt-get install -y zlib1g-dev
+    apt-get install -y build-essential 
+    apt-get install -y g++
 
     echo "Installing rbenv"
     #
@@ -50,6 +51,10 @@ if [ ! -d /usr/local/rbenv ]; then
 
     echo "Installing Ruby 2.0.0-p0"
     rbenv install 2.0.0-p0
+    
+    echo "Installing Bundler"
+    gem install bundler
+    rbenv rehash
 
     echo "Setting rbenv global version to Ruby 2.0.0-p0"
     rbenv global 2.0.0-p0

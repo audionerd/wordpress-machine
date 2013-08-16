@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/thethemefoundry/forge.git
+  remote: git://github.com/thethemefoundry/forge.git
   revision: 64acb66e835bcf14c688bca3c377d2a8e0192002
   specs:
     forge (0.5.0)

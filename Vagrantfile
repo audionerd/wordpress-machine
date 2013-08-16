@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "../site", "/vagrant/site"
+  # config.vm.synced_folder "../site", "/vagrant/site"
 
   if File.exists?('Customfile') then
     eval(IO.read('Customfile'), binding)
@@ -92,7 +92,7 @@ Vagrant.configure("2") do |config|
   #   chef.json = { :mysql_password => "foo" }
   # end
 
-  config.vm.provision :shell, :path => "provision/provision.sh"
+  config.vm.provision :shell, :path => "server/provision/provision.sh"
 
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).
