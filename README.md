@@ -5,6 +5,20 @@ Wordpress Machine provides a boilerplate setup for Wordpress on a LAMP stack run
 The Wordpress core is included as a submodule.  
 This makes Wordpress updates reasonably quick (just a submodule checkout + commit + deploy).
 
+Included stack:
+
+* LAMP
+* Ruby 2.0 via rbenv
+* screenfetch
+* composer
+* phpMyAdmin
+* [Forge](http://forge.thethemefoundry.com/) for Wordpress theme setup and asset compilation (SCSS, CoffeeScript)
+* [wp-cli](http://wp-cli.org/) for command-line scripting of Wordpress. This allows us to seed content, import/export content between environments, and more.
+* Provisioning scripts via [ifeelweb/ifwWordPressDevEnvironment](https://github.com/ifeelweb/ifwWordPressDevEnvironment)
+* Wordpress as a submodule via [Darep/wordpress-boilerplate](http://ajk.fi/2013/wordpress-as-a-submodule)
+
+
+
 ### How-To for Designers
 
 #### Getting Started
@@ -55,7 +69,7 @@ So, within the VM, switch directories to the site theme, e.g.:
 	vagrant ssh
 	cd /vagrant/site/site-theme
 
-NOTE: If you don't have a `site-theme`, you can create one, with:
+NOTE: If you don't have a Forge-generated `site-theme`, you can create one, with:
 
 	vagrant ssh
 	cd /vagrant/site
