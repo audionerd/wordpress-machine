@@ -1,26 +1,83 @@
 # Wordpress Machine
 
-This provides a boilerplate setup with Vagrant + Wordpress Core as a submodule  
-Wordpress updates are reasonably quick (just a submodule checkout + commit + deploy)
+Wordpress Machine provides a boilerplate setup for Wordpress on a LAMP stack running under Vagrant.  
 
-### LOCAL DEVELOPMENT
+The Wordpress core is included as a submodule.  
+This makes Wordpress updates reasonably quick (just a submodule checkout + commit + deploy).
+
+### How-To for Designers
+
+#### Getting Started
+
+You'll need a few programs installed on your machine:
 
 Install Vagrant (http://downloads.vagrantup.com/)  
 Install VirtualBox (https://www.virtualbox.org/wiki/Downloads)
 
-`git clone` the repo and `git submodule update` to pull Wordpress core, OR  
-Download the ZIP, unzip, and install desired Wordpress version in `site/wordpress`
+Clone the Wordpress Machine repo from GitHub (or ask for a ZIP'd copy, that works too).
 
-Then:
+Open `Terminal.app`, and change to the directory (`cd`) where the code is extracted and the `Vagrantfile` resides. You can drag-and-drop this folder from Finder to the Terminal window to insert the full path.
 
-	$ cd server
-	$ vagrant up
+For example:
 
-Setup will take about 20 minutes. Once complete, you can load up the server:
+    cd ~/Documents/Projects/wordpress-site
 
-	$ open http://192.168.33.10
+Now startup Vagrant:
 
-Wordpress is served out of `site/`
+	vagrant up
+
+This will take about 20 minutes. Vagrant is creating a virtual machine with Wordpress running on it, and configuring the site.
+
+Once this process is complete, browse to `192.168.33.10` (the IP address of the virtual machine now running on your computer), e.g.:
+
+	open http://192.168.33.10
+
+Or for Wordpress admin:
+
+	open http://192.168.33.10/wp-admin
+
+Wordpress Admin Login:
+
+* username: **admin**
+* password: **password**
+
+#### Modifying the Theme Design
+
+Log in to your virtual machine using SSH, e.g.:
+
+    cd ~/Documents/Projects/wordpress-site
+	vagrant ssh	
+
+On this virtual machine, everything in your local `wordpress-site` folder shows up in the VM's `/vagrant` folder.
+
+So, within the VM, switch directories to the site theme, e.g.:
+
+	vagrant ssh
+	cd /vagrant/site/site-theme
+
+NOTE: If you don't have a `site-theme`, you can create one, with:
+
+	vagrant ssh
+	cd /vagrant/site
+	script/run
+
+If you have a Forge-generated `site-theme` already, you can copy it into `~/Documents/Projects/wordpress-site/site/site-theme` and run Forge, which compiles SCSS for us:
+
+	vagrant ssh
+	cd /vagrant/site/site-theme
+	forge watch
+
+Now Forge is watching any changes you make, and will apply them to the site theme automatically.
+
+Try making CSS changes to `site/site-theme/source/_site.scss`, and you should see them update
+
+#### Saving your changes to the Git repository
+
+### Tech Notes
+
+Wordpress is served out of `site/`  
+
+Wordpress theme goes in `site/site-theme` and `forge watch` auto-publishes to `wordpress/wp-content/themes/site-theme`. (See Forge docs for more info on how this works).  
 
 You can also setup /etc/hosts to point to subdomains so you can do:
 
@@ -53,15 +110,7 @@ Alternate Chef setup is also possible, see:
 
 ### TODO
 
-Should probably restructure so entire git repo is accessible in Vagrant, e.g.:  
-
-    /vagrant/site
-    /vagrant/server
-
-and have Apache server out of a www symlink to /vagrant/site  
-That would allow git commits to happen from within Vagrant  
-
-DB is setup and seeded with test content _automagically_!
+DB setup and seed with test content _automagically_!
 
 Wordless (HAML) w/ Ruby installed in VM
 
