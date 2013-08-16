@@ -53,6 +53,14 @@ Alternate Chef setup is also possible, see:
 
 ### TODO
 
+Should probably restructure so entire git repo is accessible in Vagrant, e.g.:  
+
+    /vagrant/site
+    /vagrant/server
+
+and have Apache server out of a www symlink to /vagrant/site  
+That would allow git commits to happen from within Vagrant  
+
 DB is setup and seeded with test content _automagically_!
 
 Wordless (HAML) w/ Ruby installed in VM
