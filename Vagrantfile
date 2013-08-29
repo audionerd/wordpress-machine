@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
 
   # Allow Apache to write to the vagrant shared folder
   #   via https://github.com/mitchellh/vagrant/issues/897
-  config.vm.synced_folder ".", "/vagrant", :owner => "www-data", :group => "www-data"
+  config.vm.synced_folder ".", "/vagrant", :owner => "vagrant", :group => "www-data"
 
 
   if File.exists?('Customfile') then
