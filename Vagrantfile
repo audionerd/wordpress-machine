@@ -33,6 +33,11 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../site", "/vagrant/site"
 
+  # Allow Apache to write to the vagrant shared folder
+  #   via https://github.com/mitchellh/vagrant/issues/897
+  config.vm.synced_folder ".", "/vagrant", :owner => "www-data", :group => "www-data"
+
+
   if File.exists?('Customfile') then
     eval(IO.read('Customfile'), binding)
   end
